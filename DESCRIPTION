@@ -1,0 +1,11 @@
+Package: performancer
+Type: Package
+Title: Performance Metrics for Discrete Choice Analysis
+Version: 0.1.0
+Date: 2022-04-20
+Author: Nikita Gusarov
+Maintainer: Nikita Gusarov <nikita.gusarov@univ-grenoble-alpes.fr>
+Description: The package provides the most indispensable functions for assessing performance of the Discrete Choice Models (DCM). 
+License: file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.1.2
