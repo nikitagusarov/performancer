@@ -4,12 +4,17 @@
 \alias{confusion_matrix}
 \title{Confusion matrix construction}
 \usage{
-confusion_matrix(y_real, y_predicted)
+confusion_matrix(y_real, y_predicted, threshold = 0.5)
 }
 \arguments{
-\item{y_real}{Observed values to compare with in matrix format.}
+\item{y_real}{Observed values (integers) to compare with
+(in matrix format for multiclass classification).}
 
 \item{y_predicted}{Predicte values (probabiblities by class).}
+
+\item{threshold}{Used in binary classification case.
+Defines the threshold of success in the classification output.
+The decision rule applied is greater or equal.}
 }
 \value{
 matrix Confusion matrix.

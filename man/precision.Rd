@@ -4,10 +4,13 @@
 \alias{precision}
 \title{Precision}
 \usage{
-precision(confusion_matrix)
+precision(confusion_matrix, r = NULL)
 }
 \arguments{
 \item{confusion_matrix}{Confusion matrix to be used.}
+
+\item{r}{Skew Ratio parameter, which is required to calculate skew-sensitive form of Precision,
+Deafult to NULL, which calculates a non-weighted Precision.}
 }
 \value{
 integer value of Precision
@@ -16,4 +19,5 @@ integer value of Precision
 Compute Precision using confusion matrix.
 "Precision" is another term to determine "Positive Predicted Values" (PPV).
 In this package the `precision()` function is defined as a wrapper for `positive_predicted_values()`.
+It's possible to calculate the skew-sensitive formulation of the precision by adjusting `r` parameter.
 }

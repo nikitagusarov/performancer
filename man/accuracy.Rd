@@ -4,10 +4,18 @@
 \alias{accuracy}
 \title{Accuracy}
 \usage{
-accuracy(confusion_matrix)
+accuracy(confusion_matrix, r = NULL)
 }
 \arguments{
 \item{confusion_matrix}{Confusion matrix to be used.}
+
+\item{r}{Skew Ratio parameter, which is required to calculate skew-sensitive form of Accuracy,
+which is a class specific measure.
+In the case of symmetric misclassification cost (in absence of knowledge about costs),
+`r` can represent the class ratio.
+In the event of `r` representing the class ratio,
+it can be seen that a value of `r` less than unity weighs the positive examples more than the negative ones and vice versa.
+Default to NULL, which calculates overall (class-insensitive) accuracy.}
 }
 \value{
 integer value of Accuracy
