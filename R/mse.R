@@ -1,11 +1,11 @@
-#################################
-# Root-Mean-Square Error (RMSE) #
-#################################
+###########################
+# Mean Square Error (MSE) #
+###########################
 
 # nikita.gusarov@univ-grenoble-alpes.fr - April 2022
 
-#' @title Root-Mean-Square Error (RMSE)
-#' @description Compute Root-Mean-Square Error (RMSE) using confusion matrix.
+#' @title Mean Square Error (MSE)
+#' @description Compute Mean Square Error (MSE).
 #' The squared loss, in a sense, quantifies the error (or alternatively closeness) of the predicted label to the true label.
 #' When specialized to the case of probabilistic classifiers, this then can be interpreted as a reliability measure.
 #'
@@ -13,11 +13,11 @@
 #' (in matrix format for multiclass classification).
 #' @param y_predicted Predicte values (probabiblities by class).
 #'
-#' @return integer value of Root-Mean-Square Error (RMSE)
+#' @return integer value of Mean Square Error (MSE)
 #'
 #'
 
-rmse <- function(y_real,
+mse <- function(y_real,
                  y_predicted) {
   # Check for binary suitability
   if (
@@ -58,12 +58,12 @@ rmse <- function(y_real,
       )
     }
 
-    # Compute RMSE
-    rmse <- sum(
-      (y_real - y_predicted)^2 / ncol(y_real)
+    # Compute MSE
+    mse <- mean(
+      (y_real - y_predicted)^2
     )
 
     # Output
-    return(rmse)
+    return(mse)
   }
 }
