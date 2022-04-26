@@ -17,7 +17,7 @@
 
 error_rate <- function(confusion_matrix) {
   # Compute Error Rate
-  ER <- (sum(confusion_matrix) - sum(diag(confusion_matrix))) /
+  ER <- ( sum(confusion_matrix) - sum(diag(confusion_matrix)) ) /
     sum(confusion_matrix)
 
   # Output
