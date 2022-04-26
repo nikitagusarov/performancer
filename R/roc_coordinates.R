@@ -23,8 +23,8 @@ roc_coordinates <- function(confusion_matrix) {
   y <- true_positive_rate(confusion_matrix)
 
   # Bind
-  coord <- rbind(x, y)
-  names(coord) <- c("x", "y")
+  coord <- cbind(x, y)
+  colnames(coord) <- c("x", "y")
   rownames(coord) <- colnames(confusion_matrix)
 
   # Set class
@@ -51,8 +51,8 @@ plot.roc_coordinates <- function(roc_coordinates, ...) {
   # Get coordinates
   plot(
     # Coordinates
-    x = roc_coordinates$x,
-    y = roc_coordinates$y,
+    x = roc_coordinates[, "x"],
+    y = roc_coordinates[, "y"],
     # Limits
     xlim = c(0, 1),
     ylim = c(0, 1),
@@ -67,15 +67,14 @@ plot.roc_coordinates <- function(roc_coordinates, ...) {
 
   # Label points
   text(
-    roc_coordinates$x - 0.05,
-    roc_coordinates$y - 0.05,
+    roc_coordinates[, "x"] - 0.05,
+    roc_coordinates[, "y"] - 0.05,
     labels = rownames(roc_coordinates)
   )
 
   # Add middle line
   abline(
     a = 0, b = 1,
-    col = "red",
-    add = TRUE
+    col = "red"
   )
 }

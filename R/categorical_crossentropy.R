@@ -18,52 +18,17 @@
 #'
 
 categorical_crossentropy <- function(y_real,
-                                y_predicted) {
-  # Check for Categorical suitability
-  if (
-    is.integer(y_real) & is.integer(y_predicted)
-  ) {
-    # Work on Categorical case
-    y_real <- cbind(
-      y_real,
-      1 - y_real
-    )
-    y_predicted <- cbind(
-      y_predicted,
-      1 - y_predicted
-    )
-  } else
-  # Checl for multiclass case suitability
-  if (is.data.frame(y_real) & is.data.frame(y_predicted)) {
-    # Check dimensions
-    if (
-      !all(
-        dim(y_real),
-        dim(y_predicted)
-      )
-    ) {
-      stop("The dimensions of inputs differ. Aborting ...")
-    }
-
-    # Case of single column data.frame
-    if (ncol(y_real) == 1) {
-      # Work on Categorical case
-      y_real <- cbind(
-        y_real,
-        1 - y_real
-      )
-      y_predicted <- cbind(
-        y_predicted,
-        1 - y_predicted
-      )
-    }
-
-    # Compute MSE
-    CC <- mean(
-        - rowSums(y_real * log(y_predicted))
-    )
-
-    # Output
-    return(CC)
+                                     y_predicted) {
+  # Class chekc
+  if (!any(class(y_real) == class(y_predicted))) {
+    stop("The classes of input objects do not match.")
   }
+
+  # Compute MSE
+  CC <- mean(
+    -rowSums(y_real * log(y_predicted))
+  )
+
+  # Output
+  return(CC)
 }

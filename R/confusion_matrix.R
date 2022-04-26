@@ -25,14 +25,20 @@ confusion_matrix <- function(y_real,
                              y_predicted,
                              threshold = 0.5) {
   # Check for binary suitability
-  if (is.integer(y_real) & is.integer(y_predicted)) {
+  if (is.vector(y_real) & is.vector(y_predicted)) {
     # Get predicted classes
     y_ch_predicted <- as.integer(y_predicted >= threshold)
     # Confusion matrix generation
-    conf_m <- table(y_ch_real, y_ch_predicted)
+    conf_m <- table(y_real, y_ch_predicted)
+
+    # Output
+    return(conf_m)
   } else
   # Checl for multiclass case suitability
-  if (is.data.frame(y_real) & is.data.frame(y_predicted)) {
+  if (
+    (is.data.frame(y_real) & is.data.frame(y_predicted)) |
+      (is.matrix(y_real) & is.matrix(y_predicted))
+  ) {
     # Check dimensions
     if (
       !all(

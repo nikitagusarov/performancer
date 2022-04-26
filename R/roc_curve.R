@@ -26,6 +26,11 @@ roc_curve <- function(y_real,
                       y_predicted,
                       threshold_range = c(0, 1),
                       threshold_step = 0.01) {
+  # Class chekc
+  if (!(is.vector(y_real) & is.vector(y_predicted))) {
+    stop("The inputs should be probability vectors.")
+  }
+
   # Threshold sequence
   threshold <- seq(
     from = threshold_range[1],
@@ -39,7 +44,7 @@ roc_curve <- function(y_real,
     conf_m <- confusion_matrix(
       y_real,
       y_predicted,
-      threshold = threshold
+      threshold = i
     )
 
     # Get coordinates

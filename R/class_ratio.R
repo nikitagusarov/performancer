@@ -16,8 +16,8 @@
 
 class_ratio <- function(confusion_matrix) {
   # Compute Class Ratio
-  CR <- (true_positive() + false_negative()) /
-    (false_positive() + true_negative())
+  CR <- (true_positive(confusion_matrix) + false_negative(confusion_matrix)) /
+    (false_positive(confusion_matrix) + true_negative(confusion_matrix))
 
   # Output
   return(CR)

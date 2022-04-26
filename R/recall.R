@@ -17,7 +17,7 @@
 
 recall <- function(confusion_matrix) {
   # Compute Recall
-  Recall <- true_positive_ratio(confusion_matrix)
+  Recall <- true_positive_rate(confusion_matrix)
 
   # Output
   return(Recall)

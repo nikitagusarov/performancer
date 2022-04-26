@@ -19,7 +19,7 @@
 
 sensitivity <- function(confusion_matrix) {
   # True-positive rate (or Sensitivity)
-  sensitivity <- true_positive_ratio(confusion_matrix)
+  sensitivity <- true_positive_rate(confusion_matrix)
 
   # Output
   return(sensitivity)

@@ -18,7 +18,7 @@
 
 specificity <- function(confusion_matrix) {
   # True-positive rate (or Specificity)
-  specificity <- true_negative_ratio(confusion_matrix)
+  specificity <- true_negative_rate(confusion_matrix)
 
   # Output
   return(specificity)

@@ -15,7 +15,7 @@
 
 false_positive <- function(confusion_matrix) {
   # Compute False Positive
-  FP <- colSums(conf_m) - diag(conf_m)
+  FP <- colSums(confusion_matrix) - diag(confusion_matrix)
 
   # Output
   return(FP)

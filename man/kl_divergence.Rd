@@ -18,4 +18,5 @@ integer value of Kullback–Leibler Divergence (KLD)
 \description{
 Compute Kullback–Leibler Divergence (KLD) using confusion matrix.
 KL divergence basically just finds the difference between the entropies of the two distributions `P(y|f)` and `p(y)`.
+The inputs are assumed to be expressed in probabilistic terms.
 }

@@ -9,3 +9,5 @@ Description: The package provides the most indispensable functions for assessing
 License: file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.1.2
+Imports: 
+    foreach

@@ -8,6 +8,7 @@
 #' @description Compute Binary Crossentropy.
 #' The squared loss, in a sense, quantifies the error (or alternatively closeness) of the predicted label to the true label.
 #' When specialized to the case of probabilistic classifiers, this then can be interpreted as a reliability measure.
+#' This function assumes that inputs are given as probability vectors (and not matrices).
 #'
 #' @param y_real Observed values (integers) to compare with
 #' (in matrix format for multiclass classification).
@@ -19,52 +20,24 @@
 
 binary_crossentropy <- function(y_real,
                                 y_predicted) {
-  # Check for binary suitability
-  if (
-    is.integer(y_real) & is.integer(y_predicted)
-  ) {
-    # Work on binary case
-    y_real <- cbind(
-      y_real,
-      1 - y_real
-    )
-    y_predicted <- cbind(
-      y_predicted,
-      1 - y_predicted
-    )
-  } else
-  # Checl for multiclass case suitability
-  if (is.data.frame(y_real) & is.data.frame(y_predicted)) {
-    # Check dimensions
-    if (
-      !all(
-        dim(y_real),
-        dim(y_predicted)
-      )
-    ) {
-      stop("The dimensions of inputs differ. Aborting ...")
-    }
+  # Class chekc
+  if (!any(class(y_real) == class(y_predicted))) {
+    stop("The classes of input objects do not match.")
+  }
 
-    # Case of single column data.frame
-    if (ncol(y_real) == 1) {
-      # Work on binary case
-      y_real <- cbind(
-        y_real,
-        1 - y_real
-      )
-      y_predicted <- cbind(
-        y_predicted,
-        1 - y_predicted
-      )
-    }
-
+  # Vectorial case
+  if (is.vector(y_real)) {
     # Compute MSE
-    BC <- mean(
-        ((y_real * log(y_predicted))) +
+    BC <- -mean(
+      ((y_real * log(y_predicted))) +
         ((1 - y_real) * log(1 - y_predicted))
     )
-
-    # Output
-    return(BC)
+  } else {
+    BC <- mean(
+      -rowSums(y_real * log(y_predicted))
+    )
   }
+
+  # Output
+  return(BC)
 }
