@@ -15,6 +15,8 @@
 #'
 #' @return integer value of Categorical Crossentropy
 #'
+#' @export
+#'
 #'
 
 categorical_crossentropy <- function(y_real,

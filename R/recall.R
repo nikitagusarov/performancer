@@ -13,6 +13,8 @@
 #'
 #' @return integer value of Recall
 #'
+#' @export
+#'
 #'
 
 recall <- function(confusion_matrix) {

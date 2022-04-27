@@ -8,8 +8,6 @@ class_ratio(confusion_matrix)
 }
 \arguments{
 \item{confusion_matrix}{Confusion matrix to be used.}
-
-\item{alpha}{Alpha value for weighted harmonic mean calculation.}
 }
 \value{
 integer value of Class Ratio

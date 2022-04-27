@@ -16,6 +16,8 @@ Defaults to `c(0, 1)` for basic probabilistic classifier, but other values may b
 
 \item{threshold_step}{Step to use over the boundary threshold range.
 Defaults to 0.01 for binary classification.}
+
+\item{...}{Other parameters passed to base plot function.}
 }
 \value{
 matrix of PR curve coordinates for given probabilistic classifier output.

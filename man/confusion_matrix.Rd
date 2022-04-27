@@ -25,3 +25,26 @@ The confusion matrix is tipically defined with respect to some learning algorith
 The diagonal entries denote the correctly classified examples for respective class.
 All the nondiagonal entries denote misclassifications.
 }
+\examples{
+# Assuming data is:
+y_real <- matrix(
+  c(
+    1, 0, 0,
+    0, 1, 0,
+    0, 0, 1
+  ),
+  ncol = 3, byrow = TRUE
+)
+y_predicted <- matrix(
+  c(
+    0.6, 0.1, 0.3,
+    0.7, 0.2, 0.1,
+    0.2, 0.3, 0.5
+  ),
+  ncol = 3, byrow = TRUE
+)
+
+# Resulting confusion matrix is:
+confusion_matrix(y_real, y_predicted)
+
+}

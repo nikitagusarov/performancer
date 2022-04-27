@@ -14,6 +14,8 @@
 #'
 #' @return matrix of Likelihood Ratio values.
 #'
+#' @export
+#'
 #'
 
 likelihood_ratio <- function(confusion_matrix) {

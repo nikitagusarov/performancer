@@ -13,6 +13,8 @@
 #'
 #' @return integer Scott's Pi value.
 #'
+#' @export
+#'
 #'
 
 scott_pi <- function(confusion_matrix) {

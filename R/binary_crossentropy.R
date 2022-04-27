@@ -16,6 +16,8 @@
 #'
 #' @return integer value of Binary Crossentropy
 #'
+#' @export
+#'
 #'
 
 binary_crossentropy <- function(y_real,

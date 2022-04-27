@@ -8,9 +8,10 @@
 #' @description Compute Class Ratio using confusion matrix.
 #'
 #' @param confusion_matrix Confusion matrix to be used.
-#' @param alpha Alpha value for weighted harmonic mean calculation.
 #'
 #' @return integer value of Class Ratio
+#'
+#' @export
 #'
 #'
 

@@ -11,6 +11,8 @@
 #'
 #' @return vector of False Negatives count
 #'
+#' @export
+#'
 #'
 
 false_negative <- function(confusion_matrix) {

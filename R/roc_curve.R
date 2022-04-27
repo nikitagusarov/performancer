@@ -20,12 +20,17 @@
 #'
 #' @return matrix of ROC curve coordinates for given probabilistic classifier output.
 #'
+#' @export
+#'
 #' @import foreach
 
 roc_curve <- function(y_real,
                       y_predicted,
                       threshold_range = c(0, 1),
                       threshold_step = 0.01) {
+  # Avoid varning on check
+  i <- NULL
+
   # Class chekc
   if (!(is.vector(y_real) & is.vector(y_predicted))) {
     stop("The inputs should be probability vectors.")
@@ -66,20 +71,23 @@ roc_curve <- function(y_real,
 #' @title Plot ROC coordinates
 #' @description Plot ROC points using provided coordinates.
 #'
-#' @param roc_curve A ROC coordinates object.
+#' @param x A ROC coordinates object.
 #' A simple data.frame containing respective `x` and `y` coordinates.
 #' The coordinates should be ROC space compliant.
+#' @param ... Other parameters passed to base plot function.
 #'
 #' @return plot of a ROC curve for given `roc_curve`
 #'
 #' @export
+#'
+#' @importFrom graphics plot text abline
 
-plot.roc_curve <- function(roc_curve, ...) {
+plot.roc_curve <- function(x, ...) {
   # Get coordinates
   plot(
     # Coordinates
-    x = roc_curve$x,
-    y = roc_curve$y,
+    x = x$x,
+    y = x$y,
     # Limits
     xlim = c(0, 1),
     ylim = c(0, 1),
@@ -94,9 +102,9 @@ plot.roc_curve <- function(roc_curve, ...) {
 
   # Label points
   text(
-    roc_curve$x - 0.05,
-    roc_curve$y - 0.05,
-    labels = rownames(roc_curve)
+    x$x - 0.05,
+    x$y - 0.05,
+    labels = rownames(x)
   )
 
   # Add middle line

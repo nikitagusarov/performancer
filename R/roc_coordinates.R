@@ -15,6 +15,8 @@
 #'
 #' @return matrix of ROC coordinates for given confusion matrix
 #'
+#' @export
+#'
 #'
 
 roc_coordinates <- function(confusion_matrix) {
@@ -39,20 +41,23 @@ roc_coordinates <- function(confusion_matrix) {
 #' @title Plot ROC coordinates
 #' @description Plot ROC points using provided coordinates.
 #'
-#' @param roc_coordinates A ROC coordinates object.
+#' @param x A ROC coordinates object.
 #' A simple data.frame containing respective `x` and `y` coordinates.
 #' The coordinates should be ROC space compliant.
+#' @param ... Other parameters passed to base plot function.
 #'
 #' @return plot of ROC coordinates for given coordinates
 #'
 #' @export
+#'
+#' @importFrom graphics plot text abline
 
-plot.roc_coordinates <- function(roc_coordinates, ...) {
+plot.roc_coordinates <- function(x, ...) {
   # Get coordinates
   plot(
     # Coordinates
-    x = roc_coordinates[, "x"],
-    y = roc_coordinates[, "y"],
+    x = x[, "x"],
+    y = x[, "y"],
     # Limits
     xlim = c(0, 1),
     ylim = c(0, 1),
@@ -67,9 +72,9 @@ plot.roc_coordinates <- function(roc_coordinates, ...) {
 
   # Label points
   text(
-    roc_coordinates[, "x"] - 0.05,
-    roc_coordinates[, "y"] - 0.05,
-    labels = rownames(roc_coordinates)
+    x[, "x"] - 0.05,
+    x[, "y"] - 0.05,
+    labels = rownames(x)
   )
 
   # Add middle line

@@ -4,12 +4,14 @@
 \alias{plot.roc_coordinates}
 \title{Plot ROC coordinates}
 \usage{
-\method{plot}{roc_coordinates}(roc_coordinates, ...)
+\method{plot}{roc_coordinates}(x, ...)
 }
 \arguments{
-\item{roc_coordinates}{A ROC coordinates object.
+\item{x}{A ROC coordinates object.
 A simple data.frame containing respective `x` and `y` coordinates.
 The coordinates should be ROC space compliant.}
+
+\item{...}{Other parameters passed to base plot function.}
 }
 \value{
 plot of ROC coordinates for given coordinates

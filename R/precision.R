@@ -14,6 +14,8 @@
 #' @param r Skew Ratio parameter, which is required to calculate skew-sensitive form of Precision,
 #' Deafult to NULL, which calculates a non-weighted Precision.
 #'
+#' @export
+#'
 #' @return integer value of Precision
 #'
 #'

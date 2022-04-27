@@ -11,6 +11,8 @@
 #'
 #' @return vector of True Positives count
 #'
+#' @export
+#'
 #'
 
 true_positive <- function(confusion_matrix) {

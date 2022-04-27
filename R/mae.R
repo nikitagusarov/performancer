@@ -14,6 +14,8 @@
 #'
 #' @return integer value of Mean Absolute Error (MAE)
 #'
+#' @export
+#'
 #'
 
 mae <- function(y_real,

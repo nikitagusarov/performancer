@@ -14,6 +14,8 @@
 #'
 #' @return vector of Specificity values.
 #'
+#' @export
+#'
 #'
 
 specificity <- function(confusion_matrix) {

@@ -15,6 +15,8 @@
 #'
 #' @return vector of Sensitivity values.
 #'
+#' @export
+#'
 #'
 
 sensitivity <- function(confusion_matrix) {

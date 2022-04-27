@@ -4,12 +4,14 @@
 \alias{plot.pr_coordinates}
 \title{Plot PR coordinates}
 \usage{
-\method{plot}{pr_coordinates}(pr_coordinates, ...)
+\method{plot}{pr_coordinates}(x, ...)
 }
 \arguments{
-\item{pr_coordinates}{A PR coordinates object.
+\item{x}{A PR coordinates object.
 A simple data.frame containing respective `x` and `y` coordinates.
 The coordinates should be PR space compliant.}
+
+\item{...}{Other parameters passed to base plot function.}
 }
 \value{
 plot of PR coordinates for given confusion matrix

@@ -13,6 +13,8 @@
 #'
 #' @return integer value of F-measure
 #'
+#' @export
+#'
 #'
 
 f_measure <- function(confusion_matrix,

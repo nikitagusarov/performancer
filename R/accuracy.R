@@ -19,6 +19,8 @@
 #'
 #' @return integer value of Accuracy
 #'
+#' @export
+#'
 #'
 
 accuracy <- function(confusion_matrix,
@@ -30,7 +32,7 @@ accuracy <- function(confusion_matrix,
     # Compute skew-sensitive accuracy
     AC <- (
       true_positive_rate(confusion_matrix) +
-        ((1 - r) * false_positive_ratio(confusion_matrix))
+        ((1 - r) * false_positive_rate(confusion_matrix))
     ) / (1 + r)
   } else {
     stop("An incorrect Skew Ratio value provided.")

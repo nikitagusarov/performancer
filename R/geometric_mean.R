@@ -13,6 +13,8 @@
 #'
 #' @return integer value of Geometric Mean
 #'
+#' @export
+#'
 #'
 
 geometric_mean <- function(confusion_matrix,

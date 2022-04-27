@@ -15,6 +15,8 @@
 #'
 #' @return integer value of Kullback–Leibler Divergence (KLD)
 #'
+#' @export
+#'
 #'
 
 kl_divergence <- function(y_real,
@@ -27,16 +29,16 @@ kl_divergence <- function(y_real,
   # Check probabilities
   if (!(
     all((0 <= y_real) <= 1) &
-      all((0 <= y_pred) <= 1)
+      all((0 <= y_predicted) <= 1)
   )) {
     stop("The provided observations are not within the (0, 1) range.")
   }
 
   # Compute KL Divergence
-  KLD <- y_true *
+  KLD <- y_real *
     replace(
-      log(y_true / y_pred),
-      is.infinite(log(y_true / y_pred)),
+      log(y_real / y_predicted),
+      is.infinite(log(y_real / y_predicted)),
       0
     )
 

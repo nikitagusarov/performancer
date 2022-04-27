@@ -14,6 +14,8 @@
 #'
 #' @return matrix of PR coordinates for given confusion matrix
 #'
+#' @export
+#'
 #'
 
 pr_coordinates <- function(confusion_matrix) {
@@ -38,20 +40,23 @@ pr_coordinates <- function(confusion_matrix) {
 #' @title Plot PR coordinates
 #' @description Plot PR points using provided coordinates.
 #'
-#' @param pr_coordinates A PR coordinates object.
+#' @param x A PR coordinates object.
 #' A simple data.frame containing respective `x` and `y` coordinates.
 #' The coordinates should be PR space compliant.
+#' @param ... Other parameters passed to base plot function.
 #'
 #' @return plot of PR coordinates for given confusion matrix
 #'
 #' @export
+#'
+#' @importFrom graphics plot text abline
 
-plot.pr_coordinates <- function(pr_coordinates, ...) {
+plot.pr_coordinates <- function(x, ...) {
   # Get coordinates
   plot(
     # Coordinates
-    x = pr_coordinates$x,
-    y = pr_coordinates$y,
+    x = x[, "x"],
+    y = x[, "y"],
     # Limits
     xlim = c(0, 1),
     ylim = c(0, 1),
@@ -66,9 +71,9 @@ plot.pr_coordinates <- function(pr_coordinates, ...) {
 
   # Label points
   text(
-    pr_coordinates$x - 0.05,
-    pr_coordinates$y - 0.05,
-    labels = rownames(pr_coordinates)
+    x[, "x"] - 0.05,
+    x[, "y"] - 0.05,
+    labels = rownames(x)
   )
 
   # Add middle line

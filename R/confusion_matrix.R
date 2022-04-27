@@ -19,8 +19,30 @@
 #'
 #' @return matrix Confusion matrix.
 #'
+#' @export
 #'
-
+#' @examples
+#' # Assuming data is:
+#' y_real <- matrix(
+#'   c(
+#'     1, 0, 0,
+#'     0, 1, 0,
+#'     0, 0, 1
+#'   ),
+#'   ncol = 3, byrow = TRUE
+#' )
+#' y_predicted <- matrix(
+#'   c(
+#'     0.6, 0.1, 0.3,
+#'     0.7, 0.2, 0.1,
+#'     0.2, 0.3, 0.5
+#'   ),
+#'   ncol = 3, byrow = TRUE
+#' )
+#'
+#' # Resulting confusion matrix is:
+#' confusion_matrix(y_real, y_predicted)
+#'
 confusion_matrix <- function(y_real,
                              y_predicted,
                              threshold = 0.5) {
@@ -54,7 +76,7 @@ confusion_matrix <- function(y_real,
       # Get predicted classes
       y_ch_predicted <- as.integer(y_predicted >= threshold)
       # Confusion matrix generation
-      conf_m <- table(y_ch_real, y_ch_predicted)
+      conf_m <- table(y_real, y_ch_predicted)
     } else {
       # Get predicted classes
       y_ch_predicted <- max.col(y_predicted)

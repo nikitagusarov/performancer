@@ -13,6 +13,8 @@
 #'
 #' @return integer Cohen's Kappa value.
 #'
+#' @export
+#'
 #'
 
 cohen_kappa <- function(confusion_matrix) {

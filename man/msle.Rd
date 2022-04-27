@@ -4,7 +4,7 @@
 \alias{msle}
 \title{Mean Squared Logarithmic Error (MSLE)}
 \usage{
-msle(y_real, y_predicted, rowsusm = TRUE)
+msle(y_real, y_predicted, rowsums = TRUE)
 }
 \arguments{
 \item{y_real}{Observed values (integers) to compare with

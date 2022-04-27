@@ -13,8 +13,11 @@
 #' Defaults to `c(0, 1)` for basic probabilistic classifier, but other values may be used.
 #' @param threshold_step Step to use over the boundary threshold range.
 #' Defaults to 0.01 for binary classification.
+#' @param ... Other parameters passed to base plot function.
 #'
 #' @return matrix of PR curve coordinates for given probabilistic classifier output.
+#'
+#' @export
 #'
 #' @import foreach
 
@@ -57,20 +60,23 @@ pr_curve <- function(y_real,
 #' @title Plot PR coordinates
 #' @description Plot PR points using provided coordinates.
 #'
-#' @param pr_curve A PR coordinates object.
+#' @param x A PR coordinates object.
 #' A simple data.frame containing respective `x` and `y` coordinates.
 #' The coordinates should be PR space compliant.
+#' @param ... Other parameters passed to base plot function.
 #'
 #' @return plot of a PR curve for given `pr_curve`
 #'
 #' @export
+#'
+#' @importFrom graphics plot text abline
 
-plot.pr_curve <- function(pr_curve, ...) {
+plot.pr_curve <- function(x, ...) {
   # Get coordinates
   plot(
     # Coordinates
-    x = pr_curve$x,
-    y = pr_curve$y,
+    x = x$x,
+    y = x$y,
     # Limits
     xlim = c(0, 1),
     ylim = c(0, 1),
@@ -85,9 +91,9 @@ plot.pr_curve <- function(pr_curve, ...) {
 
   # Label points
   text(
-    pr_curve$x - 0.05,
-    pr_curve$y - 0.05,
-    labels = rownames(pr_curve)
+    x$x - 0.05,
+    x$y - 0.05,
+    labels = rownames(x)
   )
 
   # Add middle line

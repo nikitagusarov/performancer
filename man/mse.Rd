@@ -4,7 +4,7 @@
 \alias{mse}
 \title{Mean Square Error (MSE)}
 \usage{
-mse(y_real, y_predicted, rowsusm = TRUE)
+mse(y_real, y_predicted, rowsums = TRUE)
 }
 \arguments{
 \item{y_real}{Observed values (integers) to compare with

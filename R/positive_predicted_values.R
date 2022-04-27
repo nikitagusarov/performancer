@@ -12,6 +12,8 @@
 #'
 #' @return integer value of Positive Predicted Values
 #'
+#' @export
+#'
 #'
 
 positive_predicted_values <- function(confusion_matrix) {

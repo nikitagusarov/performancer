@@ -12,6 +12,8 @@
 #'
 #' @return vector of False Positives Rate values.
 #'
+#' @export
+#'
 #'
 
 false_positive_rate <- function(confusion_matrix) {

@@ -14,6 +14,8 @@
 #'
 #' @return integer value of Mean Absolute Percentage Error (MAPE)
 #'
+#' @export
+#'
 #'
 
 mape <- function(y_real,

@@ -12,6 +12,8 @@
 #'
 #' @return integer S Coefficient value.
 #'
+#' @export
+#'
 #'
 
 s_coefficient <- function(confusion_matrix) {

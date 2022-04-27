@@ -11,6 +11,8 @@
 #'
 #' @return integer value of Negative Predicted Values
 #'
+#' @export
+#'
 #'
 
 negative_predicted_values <- function(confusion_matrix) {

@@ -14,11 +14,13 @@
 #'
 #' @return integer value of Mean Squared Logarithmic Error (MSLE)
 #'
+#' @export
+#'
 #'
 
 msle <- function(y_real,
                  y_predicted,
-                 rowsusm = TRUE) {
+                 rowsums = TRUE) {
   # Class chekc
   if (!any(class(y_real) == class(y_predicted))) {
     stop("The classes of input objects do not match.")
