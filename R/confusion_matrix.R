@@ -85,7 +85,21 @@ confusion_matrix <- function(y_real,
       y_ch_real <- max.col(y_real)
 
       # Confusion matrix generation
-      conf_m <- table(y_ch_real, y_ch_predicted)
+      conf_m <- as.data.frame.matrix(
+        table(y_ch_real, y_ch_predicted)
+      )
+
+      # Check dimensions
+      if (
+        length(colnames(conf_m)) != length(rownames(conf_m)) 
+      ) {
+        for(
+          i in rownames(conf_m)[! rownames(conf_m) %in% colnames(conf_m)]
+        ) {
+          conf_m[, i] = rep(0, length(rownames(conf_m)))
+        }
+        conf_m = conf_m[ , rownames(conf_m)]
+      }
     }
 
     # Output
