@@ -45,7 +45,8 @@
 #'
 confusion_matrix <- function(y_real,
                              y_predicted,
-                             threshold = 0.5) {
+                             threshold = 0.5,
+                             usNA = "ifany") {
   # Check for binary suitability
   if (is.vector(y_real) & is.vector(y_predicted)) {
     # Get predicted classes
