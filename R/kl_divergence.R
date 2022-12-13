@@ -38,7 +38,7 @@ kl_divergence <- function(y_real,
   KLD <- y_real *
     replace(
       log(y_real / y_predicted),
-      is.infinite(log(y_real / y_predicted)),
+      mapply(is.infinite, x = log(y_real / y_predicted)),
       0
     )
 
