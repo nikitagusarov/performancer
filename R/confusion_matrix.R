@@ -98,7 +98,7 @@ confusion_matrix <- function(y_real,
         ) {
           conf_m[, i] = rep(0, length(rownames(conf_m)))
         }
-        conf_m = conf_m[ , rownames(conf_m)]
+        conf_m = as.matrix(conf_m[ , rownames(conf_m)])
       }
     }
 
